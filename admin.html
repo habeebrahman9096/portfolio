@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Admin | Habeeburahman</title>
+    <meta name="robots" content="noindex, nofollow">
+    <!-- Google Fonts: Space Grotesk + Manrope -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="assets/profilehabeeb.png">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="admin-header">
+        <a class="brand" href="index.html">HABEEBURAHMAN</a>
+        <div class="header-actions">
+            <span class="local-badge"><i class="fa-solid fa-shield-halved"></i> Owner-only area</span>
+            <a class="view-site" href="index.html#projects" target="_blank">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> View portfolio
+            </a>
+        </div>
+    </header>
+
+    <!-- ===== LOGIN GATE ===== -->
+    <main id="authGate" class="auth-shell">
+        <section class="auth-card">
+            <div class="auth-icon"><i class="fa-solid fa-lock"></i></div>
+            <p class="eyebrow">Private Area</p>
+            <h1>Admin Sign In</h1>
+            <p class="auth-subtitle">Only the portfolio owner can manage projects.</p>
+            <form id="authForm">
+                <label class="field-label">
+                    Password
+                    <div class="input-wrap">
+                        <input id="authPassword" type="password" required minlength="6"
+                            autocomplete="current-password" placeholder="Enter your admin password">
+                        <button type="button" id="togglePassword" class="eye-btn" aria-label="Toggle password visibility">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
+                </label>
+                <button id="authSubmit" class="save-btn full-width" type="submit">
+                    <i class="fa-solid fa-right-to-bracket"></i> Sign In
+                </button>
+            </form>
+            <p id="authMessage" class="auth-error" hidden></p>
+        </section>
+    </main>
+
+    <!-- ===== ADMIN DASHBOARD ===== -->
+    <main id="adminContent" class="admin-shell" hidden>
+
+        <section class="page-intro">
+            <div>
+                <p class="eyebrow">Portfolio Manager</p>
+                <h1>Featured Projects Admin</h1>
+                <p>Add projects with images from your PC. They'll appear live in your portfolio's Featured Projects section.</p>
+            </div>
+            <button id="logoutBtn" class="logout-btn" type="button">
+                <i class="fa-solid fa-right-from-bracket"></i> Sign Out
+            </button>
+        </section>
+
+        <div class="admin-grid">
+
+            <!-- ADD / EDIT FORM -->
+            <section class="panel form-panel">
+                <div class="panel-heading">
+                    <p class="eyebrow">New Work</p>
+                    <h2 id="formTitle">Add a Project</h2>
+                </div>
+
+                <form id="projectForm">
+
+                    <div class="field-row two-col">
+                        <label class="field-label">
+                            Project Title *
+                            <input id="fTitle" type="text" placeholder="e.g. Summer Brand Campaign" required maxlength="80">
+                        </label>
+                        <label class="field-label">
+                            Category *
+                            <select id="fCategory" required>
+                                <option value="branding">Branding / Identity</option>
+                                <option value="logo">Logo Design</option>
+                                <option value="poster">Poster Design</option>
+                                <option value="social">Social Media</option>
+                                <option value="print">Print Materials</option>
+                                <option value="thumbnail">YouTube Thumbnail</option>
+                                <option value="packaging">Packaging Design</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </label>
+                    </div>
+
+                    <!-- IMAGE UPLOAD -->
+                    <label class="field-label">
+                        Project Images *
+                        <div id="dropZone" class="drop-zone">
+                            <i class="fa-solid fa-images drop-icon"></i>
+                            <p class="drop-text">Drag &amp; drop images here, or <span class="drop-link">browse files</span></p>
+                            <p class="drop-hint">Select multiple images (JPEG, PNG, WebP)</p>
+                            <input id="fImage" type="file" accept="image/jpeg,image/jpg,image/png,image/webp" multiple class="drop-input">
+                        </div>
+                        <div id="imagePreviewWrap" class="preview-wrap" hidden>
+                            <div id="previewGallery" class="preview-gallery"></div>
+                            <button type="button" id="clearImage" class="clear-img-btn" title="Remove all images">
+                                <i class="fa-solid fa-xmark"></i> Clear All
+                            </button>
+                        </div>
+                    </label>
+
+                    <label class="field-label">
+                        Project Description
+                        <textarea id="fDesc" rows="3" placeholder="Brief overview of this project..." maxlength="600"></textarea>
+                    </label>
+
+                    <div class="field-row two-col">
+                        <label class="field-label">
+                            Client
+                            <input id="fClient" type="text" placeholder="Client name" maxlength="80">
+                        </label>
+                        <label class="field-label">
+                            Year
+                            <input id="fYear" type="text" value="2026" maxlength="10">
+                        </label>
+                    </div>
+
+                    <label class="field-label">
+                        Tools Used
+                        <input id="fTools" type="text" placeholder="Photoshop, Illustrator, Canva...">
+                    </label>
+
+                    <div class="form-actions">
+                        <button class="save-btn" type="submit">
+                            <i class="fa-solid fa-plus" id="saveIcon"></i>
+                            <span id="saveLabel">Add Project</span>
+                        </button>
+                        <button class="cancel-btn" id="cancelEdit" type="button" hidden>
+                            <i class="fa-solid fa-xmark"></i> Cancel Edit
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- PROJECT LIST -->
+            <section class="panel projects-panel">
+                <div class="panel-heading projects-heading">
+                    <div>
+                        <p class="eyebrow">Your Work</p>
+                        <h2>Added Projects <span id="projectCount" class="count-badge">0</span></h2>
+                    </div>
+                    <div style="display: flex; gap: 10px;">
+                        <button id="exportDataBtn" class="save-btn" type="button" hidden>
+                            <i class="fa-solid fa-file-export"></i> Export Data
+                        </button>
+                        <button id="clearAll" class="danger-btn" type="button" hidden>
+                            <i class="fa-solid fa-trash"></i> Delete All
+                        </button>
+                    </div>
+                </div>
+
+                <div id="projectList" class="project-list"></div>
+
+                <div id="emptyState" class="empty-state">
+                    <i class="fa-regular fa-folder-open"></i>
+                    <p>No projects added yet.</p>
+                    <p class="empty-sub">Use the form to add your first work.</p>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- TOAST -->
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <script src="projects_data.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

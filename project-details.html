@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details | Habeeburahman Portfolio</title>
+    <!-- Open Graph / WhatsApp Link Preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Habeeburahman | Graphic Designer & Brand Specialist">
+    <meta property="og:description" content="Portfolio of Habeeburahman - Creative Graphic Designer & Brand Identity Specialist. High-end logos, branding & posters.">
+    <meta property="og:image" content="https://habeeburahman.netlify.app/assets/og-preview.jpg">
+    <meta property="og:image:secure_url" content="https://habeeburahman.netlify.app/assets/og-preview.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="500">
+    <meta property="og:image:height" content="500">
+    <!-- Google Fonts: Space Grotesk + Manrope -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Favicon Icon -->
+    <link rel="icon" type="image/png" href="assets/profilehabeeb.png">
+    <link rel="apple-touch-icon" href="assets/profilehabeeb.png">
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="project-details-page">
+
+    <!-- Top Navigation Bar -->
+    <header class="navbar-wrapper scrolled" id="projectNavbar">
+        <div class="container navbar-container">
+            <a href="index.html" class="logo">
+                HABEEBURAHMAN
+            </a>
+            
+            <div class="nav-actions">
+                <a href="index.html#projects" class="btn btn-secondary btn-sm nav-back-btn">
+                    <i class="fa-solid fa-arrow-left"></i> <span>Back</span>
+                </a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Project Hero Header Section -->
+    <section class="project-hero-section">
+        <div class="container">
+            <a href="index.html#projects" class="back-link">
+                <i class="fa-solid fa-arrow-left"></i> Back to All Projects
+            </a>
+            
+            <div class="project-header-info">
+                <span class="project-cat-badge" id="projectCategory">Category Name</span>
+                <h1 class="project-header-title" id="projectTitle">Project Title Here</h1>
+                <p class="project-header-desc" id="projectDesc">Project description and overview...</p>
+
+                <!-- Project Meta Details Bar -->
+                <div class="project-meta-bar">
+                    <div class="meta-item">
+                        <span class="meta-label">Client</span>
+                        <span class="meta-val" id="projectClient">Client Name</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Year</span>
+                        <span class="meta-val" id="projectYear">2026</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Software Tools</span>
+                        <div class="tools-tags-list" id="projectTools">
+                            <!-- Injected by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Project Works Gallery Showcase Section -->
+    <section class="project-gallery-section">
+        <div class="container">
+            <div class="gallery-header">
+                <h2>Design Works & Showcase Gallery</h2>
+                <p>Explore the full collection of graphics and creative assets designed for this project.</p>
+            </div>
+
+            <!-- Works Gallery Grid -->
+            <div class="works-gallery-grid" id="worksGalleryGrid">
+                <!-- Injected dynamically by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Call To Action Section -->
+    <section class="project-cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Have a similar project in mind?</h2>
+                <p>Let's collaborate to bring your visual brand identity to life with high-impact designs.</p>
+                <div class="cta-buttons">
+                    <a href="https://wa.me/919020929096" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+                        <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+                    </a>
+                    <a href="index.html#contact" class="btn btn-primary">
+                        <i class="fa-solid fa-envelope"></i> Send Direct Message
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-wrapper">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">HABEEBURAHMAN</a>
+                <p>High-end graphic design and branding services tailored to distinguish your business presence.</p>
+            </div>
+            <div class="footer-bottom-container">
+                <p>&copy; 2026 Habeeburahman. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Image Lightbox Modal -->
+    <div class="lightbox-modal" id="lightboxModal">
+        <span class="lightbox-close" id="lightboxClose">&times;</span>
+        
+        <!-- Desktop Single View -->
+        <button class="lightbox-nav prev" id="lightboxPrev"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="lightbox-single-view">
+            <img class="lightbox-img" id="lightboxImg" alt="Enlarged design view">
+            <div class="lightbox-caption" id="lightboxCaption"></div>
+            <div class="lightbox-counter" id="lightboxCounter"></div>
+        </div>
+        <button class="lightbox-nav next" id="lightboxNext"><i class="fa-solid fa-chevron-right"></i></button>
+        
+        <!-- Mobile Scroll View -->
+        <div class="lightbox-scroll-view" id="lightboxScrollView"></div>
+    </div>
+
+    <script src="supabase-config.js"></script>
+    <script src="portfolio-api.js"></script>
+    <script src="projects_data.js"></script>
+    <!-- Project Data & Details JS Script -->
+    <script src="project-details.js"></script>
+</body>
+</html>
